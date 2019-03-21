@@ -8,7 +8,7 @@ package cn.pppobear.datastructure.heap;
  * @date 2019-03-21
  **/
 @SuppressWarnings("unchecked")
-public class MaxHeap<T extends Comparable> {
+public class MaxHeap<T extends Comparable<T>> {
 
     private T[] data;
     private int len;
@@ -86,7 +86,7 @@ public class MaxHeap<T extends Comparable> {
     private void shiftDown(int i) {
         while (leftChild(i) != -1) {
             int j = leftChild(i);
-            if (j+1 <= len && less(data[j], data[j+1])) j++;
+            if (j+1 < len && less(data[j], data[j+1])) j++;
             if (less(data[j], data[i])) break;
             exch(j, i);
             i = j;
