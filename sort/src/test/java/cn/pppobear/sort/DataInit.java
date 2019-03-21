@@ -9,8 +9,8 @@ import cn.pppobear.util.SortHelper;
  * @version 1.0
  * @date 2019-03-11
  **/
-public class DataInit {
-    public static final int N = 50000;
-    public static Comparable[] nearlyOrderedArray = SortHelper.generateNearlyOrderedArray(N, N/500);
-    public static Comparable[] randomArray = SortHelper.generateRandomArray(N, 0, N*10);
+class DataInit {
+    static final int N = 1000000;
+    static Comparable[] nearlyOrderedArray = SortHelper.generateNearlyOrderedArray(N, (int) Math.pow(10, Math.log10(N) - 4));
+    static Comparable[] randomArray = SortHelper.generateRandomArray(N, 0, N);
 }

@@ -16,7 +16,7 @@ public class BubbleSort implements SortAlgorithm {
      * 如类注释所述，内循环将正在考虑的元素与它右边的元素比较，若其比它小，就交换它们的位置
      * @param arr 待排序数组
      */
-    public void sortBasic(Comparable[] arr) {
+    public  <T extends Comparable<T>> void sortBasic(T[] arr) {
         int n = arr.length;
         if (n <= 1) {
             return;
@@ -40,7 +40,7 @@ public class BubbleSort implements SortAlgorithm {
      * @param arr 待排序数组
      */
     @Override
-    public void sort(Comparable[] arr) {
+    public  <T extends Comparable<T>> void sort(T[] arr) {
         int n = arr.length;
         if (n <= 1) {
             return;
@@ -57,6 +57,6 @@ public class BubbleSort implements SortAlgorithm {
             }
             // 记录本轮最后一次的交换位置, 在此之后的元素是有序的, 在下一轮扫描中均不考虑
             n = newn;
-        } while (newn > 0);
+        } while (n > 0);
     }
 }

@@ -3,6 +3,8 @@ package cn.pppobear.util;
 import cn.pppobear.sort.SortAlgorithm;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -120,5 +122,13 @@ public class SortHelper {
         catch(Exception e){
             e.printStackTrace();
         }
+    }
+
+    public static void testSort(Consumer<Comparable[]> consumer, String sortMethod, Comparable[] arr, String arrType) {
+        long startTime = System.currentTimeMillis();
+        consumer.accept(arr);
+        long endTime = System.currentTimeMillis();
+        assert isSorted( arr );
+        log.info("使用 {} 对 {} 进行排序, 耗时: {}ms.", sortMethod, arrType, (endTime-startTime));
     }
 }
